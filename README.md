@@ -1,2 +1,93 @@
 # agentic-sepsis-patient-similarity
 Agentic LLM system for ICU sepsis patient similarity using multimodal clinical embeddings and vector search
+# Agentic LLM-Powered Patient Similarity & Cohort Intelligence for ICU Sepsis
+
+## Disclaimer  ⚠️
+This project was developed independently on a personal computer using publicly available datasets and synthetic data.  
+It does not use, reference, or derive from any proprietary systems, workflows, schemas, or patient data.  
+This repository is intended solely for educational and portfolio purposes and is not designed for clinical use.
+# Agentic LLM Patient Similarity for ICU Sepsis
+
+## Overview
+This is a personal project I’ve been working on to explore how **AI and LLMs can help analyze ICU sepsis patients**.  
+The goal was to build a system that can find similar patients based on both **structured ICU data** (vitals, labs) and **unstructured clinical notes**.  
+
+I wanted to see how LLMs could orchestrate multiple tools, handle long clinical notes, and provide some level of **explainability**, all while keeping everything compliant and reproducible.
+
+---
+
+## What This Project Does
+- Finds **similar patients** in ICU sepsis datasets  
+- Combines **structured embeddings** (labs, vitals) with **text embeddings** (clinical notes)  
+- Uses **vector search** for fast similarity lookups  
+- Includes a simple **agentic LLM layer** to interpret queries and provide explanations  
+- Handles **long clinical notes** by chunking and embedding the relevant parts  
+
+This isn’t meant for real clinical decisions — it’s a **learning & portfolio project**, but I tried to make it as realistic as possible.
+
+---
+
+## Why Sepsis?
+Sepsis is a **complex, time-sensitive condition**.  
+It’s a perfect test case for:
+- Multivariate time-series data  
+- Missing or delayed measurements  
+- Need for explainable AI  
+
+Working with sepsis data gave me a chance to experiment with **patient trajectories, early-warning signals, and multi-modal embeddings**, which is what real hospital AI projects often deal with.
+
+---
+
+## Datasets
+- **Structured data:** [Kaggle – Sepsis Prediction in ICU](https://www.kaggle.com/datasets/salikhussaini49/predict-sepsis)  
+- **Clinical notes:** fully **synthetic**, created to simulate real ICU notes (HPI, Assessment, Plan)  
+
+All synthetic notes are labeled as such and are only for experimentation with embeddings, chunking, and retrieval.
+
+---
+
+## System Architecture
+![Architecture Diagram]
+
+**How it works:**  
+1. **Frontend (React):** Enter a query, see similar patients, explanations, and timelines  
+2. **Backend (FastAPI):** Orchestrates similarity search and LLM agent queries  
+3. **LLM Agent:** Interprets natural language queries and determines how to fetch similarity results  
+4. **Embeddings & Vector Store:** Combines structured patient embeddings with text embeddings from notes  
+
+---
+
+## Handling Clinical Notes
+Clinical notes can be really long, so I chunk them:
+- By sections (HPI, Assessment, Plan)  
+- By token limits (512–768 tokens)  
+
+Only the most relevant chunks are fed to the LLM, so it stays within token limits and focuses on what matters.
+
+---
+
+## What I Learned
+- Building **multi-modal embeddings** in healthcare is challenging but rewarding  
+- Chunking text for LLMs is crucial for handling long notes  
+- Vector search is a game-changer for similarity queries  
+- Agentic LLM orchestration adds flexibility for querying complex clinical data  
+
+---
+
+## Tech Stack
+- Python, Pandas, NumPy  
+- FastAPI  
+- React (TypeScript)  
+- FAISS / vector database  
+- HuggingFace Transformers (BioClinicalBERT for notes)  
+- OpenAI LLM API (for agent orchestration)
+
+---
+
+## Disclaimer
+This project is fully independent and **educational**.  
+- Only public datasets and synthetic notes were used  
+- No proprietary or patient-identifiable data was involved  
+- Not intended for clinical use
+
+
