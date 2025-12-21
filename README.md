@@ -38,11 +38,21 @@ Working with sepsis data gave me a chance to experiment with **patient trajector
 
 ---
 
-## Datasets
+## Datasets & Data Description
 - **Structured data:** [Kaggle – Sepsis Prediction in ICU](https://www.kaggle.com/datasets/salikhussaini49/predict-sepsis)  
+
+Each row represents a time-stamped clinical observation recorded during a single
+ICU stay. Patients therefore have multiple observations over time, forming
+longitudinal trajectories rather than multiple encounters or visits.
+
 - **Clinical notes:** fully **synthetic**, created to simulate real ICU notes (HPI, Assessment, Plan)  
 
 All synthetic notes are labeled as such and are only for experimentation with embeddings, chunking, and retrieval.
+
+### Week 1: Data Exploration
+Week 1 focused on understanding the longitudinal ICU dataset: patients exhibit variable-length trajectories with septic patient timelines truncated around sepsis onset, missingness is evenly distributed across sepsis labels, and these observations establish a solid foundation for subsequent time-windowed feature engineering and patient similarity analysis.
+(See `notebooks/exploration.ipynb` for full analysis and visualizations.)
+
 
 ---
 
