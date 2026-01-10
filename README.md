@@ -49,9 +49,22 @@ longitudinal trajectories rather than multiple encounters or visits.
 
 All synthetic notes are labeled as such and are only for experimentation with embeddings, chunking, and retrieval.
 
-### Week 1: Data Exploration
+### Week 1 Summary: Data Exploration
+
 Week 1 focused on understanding the longitudinal ICU dataset: patients exhibit variable-length trajectories with septic patient timelines truncated around sepsis onset, missingness is evenly distributed across sepsis labels, and these observations establish a solid foundation for subsequent time-windowed feature engineering and patient similarity analysis.
 (See `notebooks/exploration.ipynb` for full analysis and visualizations.)
+
+## Feature Engineering
+### Week 2 Summary: Patient-Level Feature Construction
+
+Patient representations were constructed using vital sign measurements from
+the first 24 hours of hospital admission. Laboratory features were excluded
+due to high early-window missingness (>90%). For each vital sign, statistical
+aggregates (mean, min, max, standard deviation) and missingness indicators
+were computed, followed by feature normalization to support similarity-based
+modeling.
+(See `notebooks/feature_engineering_time_windows.ipynb` for full analysis and code.)
+
 
 
 ---
