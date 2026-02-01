@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+denv/
+venv/
+*.env
+*.sqlite3
+*.log
+*.cfg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/
+*.csv
+*.tsv
+*.xlsx
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Node / React
+node_modules/
+build/
+dist/
+.env.local

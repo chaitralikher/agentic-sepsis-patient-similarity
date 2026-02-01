@@ -62,9 +62,16 @@ the first 24 hours of hospital admission. Laboratory features were excluded
 due to high early-window missingness (>90%). For each vital sign, statistical
 aggregates (mean, min, max, standard deviation) and missingness indicators
 were computed, followed by feature normalization to support similarity-based
-modeling.
+modeling. Sepsis labels were derived from the full ICU stay rather than the 24-hour
+window to avoid mislabeling patients whose sepsis onset occurred later.
 (See `notebooks/feature_engineering_time_windows.ipynb` for full analysis and code.)
 
+## Similarity Analysis
+### Week 3 Summary: Patient Similarity and Neighborhood Analysis
+Patient similarity was evaluated using a cosine-distance k-nearest neighbor
+model over normalized vital sign features. Neighborhood analysis demonstrated
+that septic patients tended to have a higher proportion of septic neighbors,
+supporting the clinical relevance of the learned similarity space.
 
 
 ---
