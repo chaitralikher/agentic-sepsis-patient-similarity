@@ -72,7 +72,7 @@ Patient similarity was evaluated using a cosine-distance k-nearest neighbor
 model over normalized vital sign features. Neighborhood analysis demonstrated
 that septic patients tended to have a higher proportion of septic neighbors,
 supporting the clinical relevance of the learned similarity space.
-
+(See `notebooks/similarity_analysis.ipynb` for full analysis and code.)
 
 ---
 
