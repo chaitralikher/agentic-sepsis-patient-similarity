@@ -52,8 +52,10 @@ All synthetic notes are labeled as such and are only for experimentation with em
 ---
 
 ## Project Roadmap
+
 This project is being developed in iterative phases to reflect real-world clinical AI system development.
 ### Version 1 — Structured Patient Similarity Engine (Current)
+
 1. Feature engineering from ICU time-series data
 2. Patient similarity modeling using clinical vitals and labs
 3. Neighborhood-based sepsis risk estimation
@@ -62,6 +64,7 @@ This project is being developed in iterative phases to reflect real-world clinic
 This version establishes the core similarity and interpretability framework using structured clinical data.
 
 ### Version 2 - Multimodal Clinical Intelligence (Planned)
+
 1. Integration of unstructured clinical notes
 2. Clinical text chunking and embedding
 3. Fusion of structured and unstructured patient representations
@@ -89,43 +92,21 @@ window to avoid mislabeling patients whose sepsis onset occurred later.
 
 
 ### Week 3 Summary: Patient Similarity and Neighborhood Analysis
+
 Patient similarity was evaluated using a cosine-distance k-nearest neighbor
 model over normalized vital sign features. Neighborhood analysis demonstrated
 that septic patients tended to have a higher proportion of septic neighbors,
 supporting the clinical relevance of the learned similarity space.
 (See `notebooks/similarity_analysis.ipynb` for full analysis and code.)
 
-### Week 4 Summary: 
-Week 4 introduces an LLM-based explanation layer that converts numeric patient similarity into human-readable clinical summaries, emphasizing interpretability and safety.
-(See 'notebooks/llm_similarity_explanations.ipynb for code)
+### Week 4 Summary: LLM Based Similarity Explanations
+
+Week 4 introduces an LLM-based explanation layer that converts numeric patient similarity into human-readable clinical summaries, emphasizing interpretability and safety. (See 'notebooks/llm_similarity_explanations.ipynb` for code)
 
 ---
 
 ## System Architecture
-Final Architecture (preliminary):
-PATIENT DATA
-   ├── Vitals / labs (structured)
-   └── Clinical notes (text)
-
-STRUCTURED PIPELINE
-   └── feature vector
-
-TEXT PIPELINE
-   ├── chunk notes (token limits)
-   ├── embed text
-   └── note representation
-
-FUSION
-   └── combined patient embedding
-
-SIMILARITY ENGINE
-   └── nearest neighbors
-
-EXPLANATION LAYER
-   ├── structured comparison
-   └── narrative reasoning (LLM)
-
-APPLICATION UI
+![architecture diagram](FinalArchitecture.jpg)
 
 
 
@@ -137,7 +118,7 @@ APPLICATION UI
 4. **Embeddings & Vector Store:** Combines structured patient embeddings with text embeddings from notes  
 
 ---
-
+<!--
 ## Handling Clinical Notes
 Clinical notes can be really long, so I chunk them:
 - By sections (HPI, Assessment, Plan)  
@@ -147,13 +128,14 @@ Only the most relevant chunks are fed to the LLM, so it stays within token limit
 
 ---
 
-## What I Learned
+ ## What I Learned
 - Building **multi-modal embeddings** in healthcare is challenging but rewarding  
 - Chunking text for LLMs is crucial for handling long notes  
 - Vector search is a game-changer for similarity queries  
-- Agentic LLM orchestration adds flexibility for querying complex clinical data  
+- Agentic LLM orchestration adds flexibility for querying complex clinical data 
 
 ---
+--> 
 
 ## Tech Stack
 - Python, Pandas, NumPy  
