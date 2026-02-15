@@ -101,7 +101,7 @@ supporting the clinical relevance of the learned similarity space.
 
 ### Week 4 Summary: LLM Based Similarity Explanations
 
-Week 4 introduces an LLM-based explanation layer that converts numeric patient similarity into human-readable clinical summaries, emphasizing interpretability and safety. (See 'notebooks/llm_similarity_explanations.ipynb` for code)
+Week 4 introduces an LLM-based explanation layer that converts numeric patient similarity into human-readable clinical summaries, emphasizing interpretability and safety. (See `notebooks/llm_similarity_explanations.ipynb` for code)
 
 ---
 
