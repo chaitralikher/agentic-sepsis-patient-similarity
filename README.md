@@ -49,12 +49,33 @@ longitudinal trajectories rather than multiple encounters or visits.
 
 All synthetic notes are labeled as such and are only for experimentation with embeddings, chunking, and retrieval.
 
+---
+
+## Project Roadmap
+This project is being developed in iterative phases to reflect real-world clinical AI system development.
+### Version 1 — Structured Patient Similarity Engine (Current)
+1. Feature engineering from ICU time-series data
+2. Patient similarity modeling using clinical vitals and labs
+3. Neighborhood-based sepsis risk estimation
+4. LLM-generated clinical similarity explanations
+5. Interactive exploration of patient risk profiles
+This version establishes the core similarity and interpretability framework using structured clinical data.
+
+### Version 2 - Multimodal Clinical Intelligence (Planned)
+1. Integration of unstructured clinical notes
+2. Clinical text chunking and embedding
+3. Fusion of structured and unstructured patient representations
+4. Enhanced similarity modeling using multimodal data
+5. Context-aware LLM explanations using both numeric and narrative evidence
+This phase extends the system toward real-world clinical decision support by incorporating narrative documentation.
+
+## Methodology
 ### Week 1 Summary: Data Exploration
 
 Week 1 focused on understanding the longitudinal ICU dataset: patients exhibit variable-length trajectories with septic patient timelines truncated around sepsis onset, missingness is evenly distributed across sepsis labels, and these observations establish a solid foundation for subsequent time-windowed feature engineering and patient similarity analysis.
 (See `notebooks/exploration.ipynb` for full analysis and visualizations.)
 
-## Feature Engineering
+
 ### Week 2 Summary: Patient-Level Feature Construction
 
 Patient representations were constructed using vital sign measurements from
@@ -66,7 +87,7 @@ modeling. Sepsis labels were derived from the full ICU stay rather than the 24-h
 window to avoid mislabeling patients whose sepsis onset occurred later.
 (See `notebooks/feature_engineering_time_windows.ipynb` for full analysis and code.)
 
-## Similarity Analysis
+
 ### Week 3 Summary: Patient Similarity and Neighborhood Analysis
 Patient similarity was evaluated using a cosine-distance k-nearest neighbor
 model over normalized vital sign features. Neighborhood analysis demonstrated
@@ -74,10 +95,40 @@ that septic patients tended to have a higher proportion of septic neighbors,
 supporting the clinical relevance of the learned similarity space.
 (See `notebooks/similarity_analysis.ipynb` for full analysis and code.)
 
+### Week 4 Summary: 
+Week 4 introduces an LLM-based explanation layer that converts numeric patient similarity into human-readable clinical summaries, emphasizing interpretability and safety.
+(See 'notebooks/llm_similarity_explanations.ipynb for code)
+
 ---
 
 ## System Architecture
-![Architecture Diagram]
+Final Architecture (preliminary):
+PATIENT DATA
+   ├── Vitals / labs (structured)
+   └── Clinical notes (text)
+
+STRUCTURED PIPELINE
+   └── feature vector
+
+TEXT PIPELINE
+   ├── chunk notes (token limits)
+   ├── embed text
+   └── note representation
+
+FUSION
+   └── combined patient embedding
+
+SIMILARITY ENGINE
+   └── nearest neighbors
+
+EXPLANATION LAYER
+   ├── structured comparison
+   └── narrative reasoning (LLM)
+
+APPLICATION UI
+
+
+
 
 **How it works:**  
 1. **Frontend (React):** Enter a query, see similar patients, explanations, and timelines  
