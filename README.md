@@ -103,6 +103,7 @@ Implemented an LLM-based explanation layer that converts numeric patient similar
 ### Week 5: Similarity + LLM Pipeline
 Implemented an end-to-end patient similarity analysis pipeline with LLM explanations. Integrated a local LLM via Ollama (Llama 3) to generate clinical reasoning summaries. Added backend/run_pipeline.py to orchestrate similarity retrieval and explanation generation. Prepared backend components for future API deployment.
 
+**The current prototype runs as a backend pipeline script; a REST API and interactive interface will be implemented in the next development phase.
 
 ---
 
