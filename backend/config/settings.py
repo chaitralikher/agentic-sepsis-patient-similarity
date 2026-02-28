@@ -13,7 +13,7 @@ DATA_PATH = os.path.join(PROJECT_ROOT, "data/processed/normalized_patient_featur
 df = pd.read_csv(DATA_PATH)
 print(df.columns.tolist())
 
-NON_FEATURE_COLUMNS = ["patient_id", "sepsis_label"]
+NON_FEATURE_COLUMNS = ["Patient_ID", "SepsisLabel"]
 
 feature_columns = [
     c for c in df.columns
