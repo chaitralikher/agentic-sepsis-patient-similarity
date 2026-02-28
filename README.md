@@ -15,6 +15,7 @@ The goal was to build a system that can find similar patients based on both **st
 I wanted to see how LLMs could orchestrate multiple tools, handle long clinical notes, and provide some level of **explainability**, all while keeping everything compliant and reproducible.
 
 The system uses a local LLM via Ollama to generate clinically interpretable explanations of patient similarity patterns without sending data to external APIs.
+Using a local LLM ensures that no clinical data is transmitted to external APIs, aligning with common healthcare privacy constraints.
 
 ---
 

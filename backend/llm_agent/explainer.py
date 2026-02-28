@@ -6,16 +6,31 @@ def _build_prompt(comparison_dict, sepsis_rate):
     )
 
     return f"""
-You are a clinical decision support assistant.
+You are a clinical data interpretation assistant.
 
-A patient's physiologic profile is compared to similar ICU patients.
+An ICU patient's physiologic profile has been compared to similar patients using a similarity algorithm.
 
 Neighborhood sepsis prevalence: {sepsis_rate:.2f}
 
-Feature comparison:
+Feature comparison between the index patient and similar patients:
 {feature_lines}
 
-Write a concise clinical interpretation of similarity and risk.
+Instructions:
+- Use ONLY the information provided in the feature comparison.
+- Describe whether the patient's values are higher, lower, or similar relative to neighbors.
+- Explain possible physiologic implications cautiously using general language.
+- Do NOT diagnose diseases.
+- Do NOT predict outcomes.
+- Do NOT infer unobserved variables.
+- Do NOT recommend treatments.
+- Do NOT introduce clinical concepts that are not directly related to the listed features.
+
+Start the explanation with:
+"The index patient shows physiologic similarity to neighboring ICU patients with respect to..."
+
+First list 3–4 key physiologic similarities as bullet points.
+Then provide a short summary paragraph in concise 3–5 sentence clinical-style interpretation summarizing the similarity patterns.
+
 """
 
 
