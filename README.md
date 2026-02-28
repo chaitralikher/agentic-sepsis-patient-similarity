@@ -14,6 +14,8 @@ The goal was to build a system that can find similar patients based on both **st
 
 I wanted to see how LLMs could orchestrate multiple tools, handle long clinical notes, and provide some level of **explainability**, all while keeping everything compliant and reproducible.
 
+The system uses a local LLM via Ollama to generate clinically interpretable explanations of patient similarity patterns without sending data to external APIs.
+
 ---
 
 ## What This Project Does
@@ -83,32 +85,46 @@ Week 1 focused on understanding the longitudinal ICU dataset: patients exhibit v
 
 Patient representations were constructed using vital sign measurements from
 the first 24 hours of hospital admission. Laboratory features were excluded
-due to high early-window missingness (>90%). For each vital sign, statistical
-aggregates (mean, min, max, standard deviation) and missingness indicators
-were computed, followed by feature normalization to support similarity-based
-modeling. Sepsis labels were derived from the full ICU stay rather than the 24-hour
-window to avoid mislabeling patients whose sepsis onset occurred later.
+due to high early-window missingness (>90%). For each vital sign, statistical aggregates (mean, min, max, standard deviation) and missingness indicators were computed, followed by feature normalization to support similarity-based modeling. Sepsis labels were derived from the full ICU stay rather than the 24-hour window to avoid mislabeling patients whose sepsis onset occurred later.
 (See `notebooks/feature_engineering_time_windows.ipynb` for full analysis and code.)
 
 
 ### Week 3 Summary: Patient Similarity and Neighborhood Analysis
 
 Patient similarity was evaluated using a cosine-distance k-nearest neighbor
-model over normalized vital sign features. Neighborhood analysis demonstrated
-that septic patients tended to have a higher proportion of septic neighbors,
+model over normalized vital sign features. Neighborhood analysis demonstrated that septic patients tended to have a higher proportion of septic neighbors,
 supporting the clinical relevance of the learned similarity space.
 (See `notebooks/similarity_analysis.ipynb` for full analysis and code.)
 
 ### Week 4 Summary: LLM Based Similarity Explanations
 
-Week 4 introduces an LLM-based explanation layer that converts numeric patient similarity into human-readable clinical summaries, emphasizing interpretability and safety. (See `notebooks/llm_similarity_explanations.ipynb` for code)
+Implemented an LLM-based explanation layer that converts numeric patient similarity into human-readable clinical summaries, emphasizing interpretability and safety. (See `notebooks/llm_similarity_explanations.ipynb` for code)
+
+### Week 5: Similarity + LLM Pipeline
+Implemented an end-to-end patient similarity analysis pipeline with LLM explanations. Integrated a local LLM via Ollama (Llama 3) to generate clinical reasoning summaries. Added backend/run_pipeline.py to orchestrate similarity retrieval and explanation generation. Prepared backend components for future API deployment.
+
 
 ---
 
 ## System Architecture
 ![architecture diagram](FinalArchitecture.jpg)
 
+### Local LLM Setup
+This project uses a local large language model via Ollama
+to generate clinical explanations for patient similarity.
 
+Setup steps:
+
+1. Install Ollama
+2. Start the service:
+
+   ollama serve
+
+3. Pull the model:
+
+   ollama pull llama3:8b
+
+4. Run the backend API
 
 
 **How it works:**  
@@ -143,7 +159,7 @@ Only the most relevant chunks are fed to the LLM, so it stays within token limit
 - React (TypeScript)  
 - FAISS / vector database  
 - HuggingFace Transformers (BioClinicalBERT for notes)  
-- OpenAI LLM API (for agent orchestration)
+- Ollama llama3 model 
 
 ---
 

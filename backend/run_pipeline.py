@@ -22,10 +22,15 @@ def run(patient_index=0):
     explanation = generate_explanation(comparison, sepsis_rate)
 
     print("\n========== RESULT ==========")
-    print("Neighborhood sepsis prevalence:", round(sepsis_rate, 3))
-    print("\nClinical Explanation:")
-    print(explanation)
+    result ={
+        "patient_index": patient_index,
+        "sepsis_prevalence": sepsis_rate,
+        "feature_comparison": comparison,
+        "clinical_explanation": explanation
+    }
+    print(result)
     print("============================")
+    return result
 
 
 if __name__ == "__main__":
