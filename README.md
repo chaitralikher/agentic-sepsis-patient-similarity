@@ -114,15 +114,9 @@ Implemented an end-to-end patient similarity analysis pipeline with LLM explanat
 
 ## System Architecture
 #### Prototype System Architecture
-Data Processing
-      ↓
-Feature Engineering
-      ↓
-Patient Similarity Engine
-      ↓
-LLM Explanation Layer (Ollama)
-      ↓
-Pipeline Runner
+graph LR
+    A[Data Processing] --> B[Feature Engineering] --> C[Patient Similarity Engine] --> D[LLM Explanation Layer Ollama] --> E[Pipeline Runner]
+
 
 ### Local LLM Setup
 This project uses a local large language model via Ollama to generate clinical explanations for patient similarity.
