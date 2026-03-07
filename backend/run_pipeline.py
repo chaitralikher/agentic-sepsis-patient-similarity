@@ -24,20 +24,19 @@ def run(patient_index=0):
     print("Generating clinical explanation...")
     explanation = generate_explanation(comparison, sepsis_rate)
 
-    print("\n========== RESULT ==========")
-    result ={
-        "patient_index": patient_index,
-        "neighbor_indices": neighbors.index.tolist(),
-        "sepsis_prevalence": float(sepsis_rate),
-        "feature_comparison": comparison,
-        "clinical_explanation": explanation
-    }
-    json_result=json.dumps(result, indent=2)
-    print(json_result)
-    with open("outputs/patient_0_explanation.json", "w") as f:
-        json.dump(result, f, indent=2)
-    return (json.loads(json_result))
+    result = {
+    "patient_index": int(patient_index),
+    "neighbor_indices": neighbors.index.tolist(),
+    "sepsis_prevalence": float(sepsis_rate),
+    "feature_comparison": comparison,
+    "clinical_explanation": explanation
+}
 
+# optional: save output
+with open(f"outputs/patient_{patient_index}_explanation.json", "w") as f:
+    json.dump(result, f, indent=2)
+
+return result
 
 if __name__ == "__main__":
     run(patient_index=0)
