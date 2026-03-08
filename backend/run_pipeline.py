@@ -32,11 +32,9 @@ def run(patient_index=0):
     "clinical_explanation": explanation
 }
 
-# optional: save output
-with open(f"outputs/patient_{patient_index}_explanation.json", "w") as f:
-    json.dump(result, f, indent=2)
+    # optional: save output
+    with open(f"outputs/patient_{patient_index}_explanation.json", "w") as f:
+        json.dump(result, f, indent=2)
 
-return result
+    return result
 
-if __name__ == "__main__":
-    run(patient_index=0)

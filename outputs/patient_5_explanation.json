@@ -1,0 +1,43 @@
+{
+  "patient_index": 5,
+  "neighbor_indices": [
+    17569,
+    11444,
+    5868,
+    24388,
+    9215,
+    23125,
+    8291,
+    2426,
+    7508,
+    1374
+  ],
+  "sepsis_prevalence": 0.1,
+  "feature_comparison": {
+    "HR_mean_24h": "lower",
+    "HR_min_24h": "higher",
+    "HR_max_24h": "lower",
+    "HR_std_24h": "lower",
+    "MAP_mean_24h": "lower",
+    "MAP_min_24h": "higher",
+    "MAP_max_24h": "lower",
+    "MAP_std_24h": "lower",
+    "O2Sat_mean_24h": "higher",
+    "O2Sat_min_24h": "lower",
+    "O2Sat_max_24h": "similar",
+    "O2Sat_std_24h": "higher",
+    "SBP_mean_24h": "higher",
+    "SBP_min_24h": "higher",
+    "SBP_max_24h": "higher",
+    "SBP_std_24h": "lower",
+    "DBP_mean_24h": "lower",
+    "DBP_min_24h": "higher",
+    "DBP_max_24h": "lower",
+    "DBP_std_24h": "lower",
+    "Resp_mean_24h": "higher",
+    "Resp_min_24h": "higher",
+    "Resp_max_24h": "lower",
+    "Resp_std_24h": "lower"
+  },
+  "clinical_explanation": "The index patient shows physiologic similarity to neighboring ICU patients with respect to:\n\n\u2022 Higher SBP_mean_24h, SBP_min_24h, and SBP_max_24h: This suggests that the index patient's systemic blood pressure is elevated compared to similar patients.\n\u2022 Similar O2Sat_max_24h: The maximum oxygen saturation levels of the index patient are comparable to those of neighboring patients, indicating a stable oxygenation status.\n\u2022 Higher Resp_mean_24h and higher Resp_min_24h: This pattern suggests that the index patient's respiratory rate is increased compared to similar patients.\n\nIn summary, the index patient shows physiologic similarities to neighboring ICU patients in terms of elevated systemic blood pressure, relatively stable oxygenation status, and increased respiratory rate. These patterns may indicate a more vigorous circulatory response or a compensatory response to respiratory demands, but further evaluation is needed to fully understand the clinical implications."
+}
