@@ -1,0 +1,43 @@
+{
+  "patient_index": 6,
+  "neighbor_indices": [
+    21107,
+    8234,
+    15594,
+    7184,
+    4589,
+    5257,
+    5570,
+    3756,
+    3587,
+    16551
+  ],
+  "sepsis_prevalence": 0.5,
+  "feature_comparison": {
+    "HR_mean_24h": "higher",
+    "HR_min_24h": "similar",
+    "HR_max_24h": "higher",
+    "HR_std_24h": "higher",
+    "MAP_mean_24h": "lower",
+    "MAP_min_24h": "lower",
+    "MAP_max_24h": "lower",
+    "MAP_std_24h": "higher",
+    "O2Sat_mean_24h": "similar",
+    "O2Sat_min_24h": "lower",
+    "O2Sat_max_24h": "similar",
+    "O2Sat_std_24h": "lower",
+    "SBP_mean_24h": "higher",
+    "SBP_min_24h": "lower",
+    "SBP_max_24h": "lower",
+    "SBP_std_24h": "lower",
+    "DBP_mean_24h": "lower",
+    "DBP_min_24h": "lower",
+    "DBP_max_24h": "higher",
+    "DBP_std_24h": "higher",
+    "Resp_mean_24h": "similar",
+    "Resp_min_24h": "higher",
+    "Resp_max_24h": "higher",
+    "Resp_std_24h": "higher"
+  },
+  "clinical_explanation": "The index patient shows physiologic similarity to neighboring ICU patients with respect to:\n\n\u2022 O2Sat_mean_24h: similar values indicate that the patient's oxygen saturation levels are comparable to those of their neighbors over a 24-hour period.\n\u2022 Resp_mean_24h: similar values suggest that the patient's respiratory rate is in line with that of neighboring patients.\n\u2022 HR_min_24h: similar values imply that the patient's minimum heart rate over the 24-hour period is consistent with that of their neighbors.\n\nThe index patient demonstrates a mix of similarities and differences compared to their neighbors. While some physiological parameters, such as oxygen saturation and respiratory rate, are comparable to those of neighboring patients, others show deviations. The patient's mean heart rate, maximum heart rate, and systolic blood pressure are higher than those of their neighbors, indicating potential tachycardia and hypertension. Additionally, the patient's diastolic blood pressure is lower than that of their neighbors, which may suggest a lack of adequate blood flow or peripheral vasodilation."
+}
