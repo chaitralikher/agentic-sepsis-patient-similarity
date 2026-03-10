@@ -108,23 +108,23 @@ Implemented an LLM-based explanation layer that converts numeric patient similar
 
 Implemented an end-to-end patient similarity analysis pipeline with LLM explanations. Integrated a local LLM via Ollama (Llama 3) to generate clinical reasoning summaries. Added backend/run_pipeline.py to orchestrate similarity retrieval and explanation generation. Prepared backend components for future API deployment.
 
-**The current prototype runs as a backend pipeline script; a REST API and interactive interface will be implemented in the next development phase.
+### Week 6 : Backend API and Prototype UI
+Implemented a backend API using Flask to expose the similarity analysis and LLM explanation pipeline as a callable service. A minimal prototype interface was built using React allowing users to input a patient index and view similarity-based clinical explanations. Explanations are generated locally using Ollama.
+
+This milestone establishes an end-to-end clinical AI prototype architecture connecting data processing, similarity modeling, LLM interpretation, API services, and a user interface.
 
 ---
 
 ## System Architecture
-#### Prototype System Architecture
+### Application Architecture
 ```
-Data Processing
-↓
-Feature Engineering
-↓
+React UI
+   |
+Flask API
+   |
 Patient Similarity Engine
-↓
-LLM Explanation Layer (Ollama)
-↓
-Pipeline Runner
-
+   |
+Local LLM (Ollama)
 ```
 
 
@@ -132,7 +132,7 @@ Pipeline Runner
 This project uses a local large language model via Ollama to generate clinical explanations for patient similarity.
 
 Setup steps:
-
+```
 1. Install Ollama
 2. Start the service:
 
@@ -142,7 +142,15 @@ Setup steps:
 
    ollama pull llama3:8b
 
-4. Run the backend API
+4. Start the frontend app: 
+
+   npm run
+
+5. Start the flask API:
+
+  python -m backend.api.app
+
+```
 
 
 **How it works:**  
@@ -173,8 +181,8 @@ Only the most relevant chunks are fed to the LLM, so it stays within token limit
 
 ## Tech Stack
 - Python, Pandas, NumPy  
-- FastAPI  
-- React (TypeScript)  
+- Flask API 
+- ReactJS
 - FAISS / vector database  
 - HuggingFace Transformers (BioClinicalBERT for notes)  
 - Ollama llama3 model 
