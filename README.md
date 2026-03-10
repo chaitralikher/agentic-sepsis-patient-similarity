@@ -116,15 +116,19 @@ This milestone establishes an end-to-end clinical AI prototype architecture conn
 ---
 
 ## System Architecture
-### Application Architecture
 ```
-React UI
-   |
-Flask API
-   |
-Patient Similarity Engine
-   |
-Local LLM (Ollama)
+
+Frontend (React)
+      ↓
+Backend API (Flask)
+      ↓
+Similarity Engine (KNN-based patient similarity)
+      ↓
+Clinical Feature Comparison
+      ↓
+LLM Explanation Layer (Ollama / Llama3)
+      ↓
+JSON Response
 ```
 
 
